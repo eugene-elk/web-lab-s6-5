@@ -17,8 +17,8 @@
         <ul>
             <div v-for="(file, key) in files">
                 <h3>{{ file.title }}</h3>
-                <button @click="openFile(file._id)">Open file</button>
-                <button @click="deleteFile(file._id, key)">Delete file</button>
+                <button @click="openFile(file._id)">Open</button>
+                <button @click="deleteFile(file._id, key)">Delete</button>
             </div>
         </ul>
     </div>
