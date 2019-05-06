@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+</head>
+<body>
+<div id="editor">
+    Название:
+    <input v-model="name"><br>
+    <textarea :value="text" @input="update"></textarea>
+    <div class="MDcompiled" v-html="compiledMarkdown"></div>
+    <button @click="newFile">Save as new file</button>
+    <button @click="updateFile" v-cloak v-if="id != null">Update file</button>
+    <div v-cloak v-if="files.length != 0">
+        <h1>Documents</h1>
+        <ul>
+            <div v-for="(file, key) in files">
+                <h3>{{ file.title }}</h3>
+                <button @click="openFile(file._id)">Open file</button>
+                <button @click="deleteFile(file._id, key)">Delete file</button>
+            </div>
+        </ul>
+    </div>
+</div>
+
+
+<script src="https://unpkg.com/marked@0.3.6"></script>
+<script src="https://unpkg.com/lodash@4.16.0"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="vue.js"></script>
+</body>
+</html>
